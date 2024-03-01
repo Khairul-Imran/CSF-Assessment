@@ -31,3 +31,7 @@ export interface Order {
   cart: Cart
 }
 
+export interface LineItemSlice {
+  loadedOn: number
+  lineItems: LineItem[]
+}

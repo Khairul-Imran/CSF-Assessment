@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-confirm-checkout',
@@ -8,5 +9,11 @@ import { Component } from '@angular/core';
 export class ConfirmCheckoutComponent {
 
   // TODO Task 3
+  private router = inject(Router)
 
+
+
+
+
+  
 }

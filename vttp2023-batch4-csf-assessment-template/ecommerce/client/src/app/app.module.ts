@@ -15,6 +15,10 @@ import {ConfirmCheckoutComponent} from './components/confirm-checkout.component'
 // NOTE: you are free to modify this file
 
 const appRoutes: Routes = [
+  { path: '', component: MainComponent }, // View 0
+  { path: 'category', component: CategoryComponent }, // View 1
+  { path: 'checkout', component: ConfirmCheckoutComponent }, // View 2
+  { path: '**', redirectTo: '/', pathMatch: 'full' }
 ]
 
 @NgModule({

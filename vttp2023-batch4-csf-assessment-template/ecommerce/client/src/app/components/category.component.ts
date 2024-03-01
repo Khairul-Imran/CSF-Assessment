@@ -2,7 +2,8 @@ import { Component, OnInit, inject } from '@angular/core';
 import {Observable} from 'rxjs';
 import {Product} from '../models';
 import {ProductService} from '../product.service';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-category',
@@ -15,6 +16,7 @@ export class CategoryComponent implements OnInit {
 
   private prodSvc = inject(ProductService)
   private activatedRoute = inject(ActivatedRoute)
+  private router = inject(Router)
 
   category: string = "not set"
 
@@ -24,4 +26,9 @@ export class CategoryComponent implements OnInit {
     this.category = this.activatedRoute.snapshot.params['category']
     this.products$ = this.prodSvc.getProductsByCategory(this.category)
   }
+
+  
+
+
+
 }
