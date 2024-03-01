@@ -8,7 +8,7 @@ import { ComponentStore } from "@ngrx/component-store";
 const INIT: LineItemSlice = {
     loadedOn: 0,
     lineItems: []
-  }
+}
 
 // Use the following class to implement your store
 @Injectable()

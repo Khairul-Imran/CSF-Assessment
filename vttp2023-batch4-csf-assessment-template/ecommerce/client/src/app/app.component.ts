@@ -13,6 +13,7 @@ export class AppComponent implements OnInit {
 
   private router = inject(Router)
 
+  
   itemCount!: number
 
   ngOnInit(): void {
