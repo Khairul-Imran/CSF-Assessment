@@ -2,6 +2,9 @@ import { Component, Input, OnInit, Output, inject } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {LineItem} from '../models';
 import { CartStore } from '../cart.store';
+import { CartStore2 } from '../cart.store2';
+import { Subject } from 'rxjs';
+
 
 @Component({
   selector: 'app-order-form',
@@ -14,9 +17,19 @@ export class OrderFormComponent implements OnInit {
 
   private fb = inject(FormBuilder)
   private lineItemStore = inject(CartStore);
+  private lineItemStore2 = inject(CartStore2);
 
   @Input({ required: true })
   productId!: string
+
+  @Input()
+  name!: string
+
+  @Input()
+  price!: number
+
+  @Output()
+  currentCartCount = new Subject<number>();
 
   form!: FormGroup
 
@@ -28,10 +41,14 @@ export class OrderFormComponent implements OnInit {
     const lineItem: LineItem = {
       prodId: this.productId,
       quantity: this.form.value['quantity'],
-      name: '',
-      price: 0
+      name: this.name,
+      price: this.price
     }
-    this.lineItemStore.addToStore(lineItem); // Store
+
+    // this.lineItemStore.addEntry(lineItem); // Store
+    this.lineItemStore2.addLineItem(lineItem);
+
+    this.currentCartCount.next(this.lineItemStore2.getLineItemStoreLength()); // Update count
 
     this.form = this.createForm()
   }

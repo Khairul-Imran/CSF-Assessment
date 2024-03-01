@@ -8,9 +8,13 @@ create table order (
     address varchar(128) not null,
     priority boolean not null,
     comments varchar(128) not null,
-    cart ...
 
     primary key (address)
+);
+
+create table cart (
+    
+
 );
 
 

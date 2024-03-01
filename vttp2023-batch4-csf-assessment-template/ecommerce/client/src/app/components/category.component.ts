@@ -22,7 +22,7 @@ export class CategoryComponent implements OnInit {
   category: string = "not set"
 
   products$!: Observable<Product[]>
-  // products$!: Promise<Product[] | undefined>
+
   products: any[] = [];
   sub$!: Subscription;
 
@@ -30,34 +30,13 @@ export class CategoryComponent implements OnInit {
     this.category = this.activatedRoute.snapshot.params['category']
 
     this.sub$ = this.prodSvc.getProductsByCategory(this.category).subscribe({
-      next: (result) => { this.products = result },
+      next: (result) => { 
+        console.info(result)
+        this.products.push(result) 
+      },
       error: (err) => { console.log(err); },
       complete: () => { this.sub$.unsubscribe() }
     });
 
-    // this.products$ = lastValueFrom(this.prodSvc.getProductsByCategory(this.category))
-    //   .then(data => {
-    //     return data;
-    //   })
-    //   .catch(error => {
-    //     console.error("Failed to fetch weather data: ", error);
-    //   })
-    
-    // this.products$ = this.prodSvc.getProductsByCategory(this.category)
-    //   .subscribe(data => console.info(data));
-
-      // .then((data) => console.info(data))  
-
-      // .subscribe({
-      //   next: (data) => {console.info(data)}
-      //   error: (error HttpErrorResponse) => {console.error(error)},
-      //   complete: () => { this.products$.unsubscribe() }
-      // })
-
   }
-
-  
-
-
-
 }

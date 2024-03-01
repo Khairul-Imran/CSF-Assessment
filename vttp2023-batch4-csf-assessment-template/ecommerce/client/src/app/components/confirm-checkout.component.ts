@@ -5,6 +5,7 @@ import { ProductService } from '../product.service';
 import { CartStore } from '../cart.store';
 import { Cart, LineItem, Order } from '../models';
 import { Observable } from 'rxjs';
+import { CartStore2 } from '../cart.store2';
 
 @Component({
   selector: 'app-confirm-checkout',
@@ -16,15 +17,16 @@ export class ConfirmCheckoutComponent implements OnInit {
   // TODO Task 3
   private router = inject(Router)
   private productService = inject(ProductService)
-  private lineItemStore = inject(CartStore);
+  // private lineItemStore = inject(CartStore);
+  private lineItemStore2 = inject(CartStore2);
   
   private fb: FormBuilder = inject(FormBuilder);
   
-  cart$!: Observable<LineItem[]>
+  cart$!: LineItem[]
   checkoutForm!: FormGroup;
   
   ngOnInit(): void {
-    this.cart$ = this.lineItemStore.getAllItems;
+    this.cart$ = this.lineItemStore2.getLineItems();
     this.checkoutForm = this.createCheckoutForm();
   }
 

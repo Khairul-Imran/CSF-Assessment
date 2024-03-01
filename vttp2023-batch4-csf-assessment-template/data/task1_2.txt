@@ -8,6 +8,6 @@ Local Import:
 mongoimport --db=emart -c products --type=csv --headerline --file=products.csv
 
 
-******TO BE EDITED******
 Railway Import (did the long way):
-mongoimport --uri="mongodb://mongo:5beEc4DfdD-Bcdc21E1DE52ad5F1gF22@monorail.proxy.rlwy.net:12820/bedandbreakfast?authSource=admin" --drop --db=bedandbreakfast -c listings_and_reviews --type=json --file=/Users/khairulimran/VTTP/PAF/PAF-Assessment/paf_assessment_template/bedandbreakfastapp/data/listings.json
+mongoimport --uri="mongodb://mongo:Ca-5b2af-d3C6-ffDa-AFGgBf5gAcg6B@monorail.proxy.rlwy.net:29413/emart?authSource=admin" --drop --db=emart -c products --type=csv --headerline --file=/Users/khairulimran/VTTP/CSF-Assessment/vttp2023-batch4-csf-assessment-template/data/products.csv
+
