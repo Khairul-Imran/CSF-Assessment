@@ -41,12 +41,13 @@ FROM openjdk:21-jdk-bullseye
 
 WORKDIR /app 
 
-COPY --from=sb-builder /sbapp/target/articles-0.0.1-SNAPSHOT.jar emart-app.jar
+COPY --from=sb-builder /sbapp/target/ecommerce-0.0.1-SNAPSHOT.jar emart-app.jar
 
 ## Run the application
 # Define environment variable 
 ENV PORT=8080 
 ENV SPRING_DATA_MONGODB_URI=
+
 
 # Expose the port
 EXPOSE ${PORT}
