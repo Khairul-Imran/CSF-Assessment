@@ -11,7 +11,7 @@ import {Router} from '@angular/router';
 export class MainComponent implements OnInit {
 
   // NOTE: you are free to modify this component
-
+  
   private prodSvc = inject(ProductService)
   private router = inject(Router)
 

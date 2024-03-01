@@ -16,7 +16,7 @@ import {ConfirmCheckoutComponent} from './components/confirm-checkout.component'
 
 const appRoutes: Routes = [
   { path: '', component: MainComponent }, // View 0
-  { path: 'category', component: CategoryComponent }, // View 1
+  { path: 'category/:category', component: CategoryComponent }, // View 1
   { path: 'checkout', component: ConfirmCheckoutComponent }, // View 2
   { path: '**', redirectTo: '/', pathMatch: 'full' }
 ]
